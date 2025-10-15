@@ -1,0 +1,77 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <cctype>
+#include <climits>
+#include <cstring>
+#include <fstream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+class RandomThings
+{
+public:
+   int show(int number)
+   {
+      srand(static_cast<unsigned>(time(nullptr)));
+      int randomInteger; 
+    
+      randomInteger = ( rand ( ) % number ) + 1;
+      return randomInteger;
+    }
+};
+
+int main(){
+    int pickNumber;
+    cout << "1) display random Word" << endl;
+    cout << "2) display random Line" << endl;
+    cout << "3) Quit" << endl;
+    cin >> pickNumber;
+    
+    if(pickNumber == 3){
+        return 0;
+    } else if(pickNumber == 2){
+        ifstream read ("linewordfile.txt");
+    
+        string line;
+        vector < string > stuff;
+    
+        int counter = 0;
+        while (getline(read, line, '\n')){
+            stuff.push_back( line );
+            counter++;
+    }
+        
+        read.close();
+        RandomThings lineWord;
+        cout << stuff[lineWord.show( counter - 1 )];
+    
+        cin.get();
+        return 0;
+    } else{
+        fstream file;
+        string word, filename;
+        filename = "linewordfile.txt";
+        file.open(filename.c_str());
+        
+            
+            
+            while (file >> word) {
+                vector < string > stuff;
+            int counter = 0;
+         stuff.push_back(word);
+         counter++;
+         RandomThings lineWord;
+         cout << stuff[lineWord.show(counter-1)];
+         cin.get();
+     }
+     
+            //RandomThings lineWord;
+            //cout << word[lineWord.show( counter - 1 )];
+            //cin.get();
+
+}
+return 0;
+}
