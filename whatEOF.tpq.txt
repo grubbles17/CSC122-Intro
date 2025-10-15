@@ -1,0 +1,10 @@
+------Question 1 ------------What do you mean EOF?!--------
+I suppose it would be pretty bad to be unsure if you got to
+the end of the file or not before closing it.
+--------------------Question 2 ------------ 
+The eof calls should be placed in a open file, a loop
+and within a if/else statement. Prior to being closed.
+--------------------Question 3 ------------ 
+Yes, if not taking care with eof checks you can create problems 
+with the compiler which will stop the program and leave a
+strange message.
